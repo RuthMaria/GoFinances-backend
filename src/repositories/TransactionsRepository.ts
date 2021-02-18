@@ -12,11 +12,11 @@ interface Balance {
 class TransactionsRepository extends Repository<Transaction> {
 
   public async sumValues(type: string): Promise<number> {
-    const transaction = await this.find()
+    const transactions = await this.find()
 
-    const sum = transaction.reduce((accumulator, transaction) => {
+    const sum = transactions.reduce((accumulator, transaction) => {
       if(transaction.type === type)
-            return accumulator += transaction.value
+            return accumulator += Number(transaction.value)
       else 
             return accumulator
   }, 0)

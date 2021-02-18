@@ -20,16 +20,13 @@ export class CreateTransactions1613587106346 implements MigrationInterface {
                    },
                    {
                        name: 'value',
-                       type: 'varchar',
+                       type: 'decimal',
+                       precision: 10,
+                       scale:2
                    },
                    {
-                    name: 'type',
-                    type: 'varchar',
-                   },
-                   {
-                    name: 'category_id',
-                    type: 'uuid',
-                    isNullable: true
+                        name: 'type',
+                        type: 'varchar',
                    },
                    {
                        name: 'created_at',
@@ -44,20 +41,10 @@ export class CreateTransactions1613587106346 implements MigrationInterface {
                 ]
             })
         )
-
-        await queryRunner.createForeignKey('transactions', new TableForeignKey({
-            name: 'TransactionsCategory',
-            columnNames: ['category_id'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'categories',
-            onDelete: 'SET NULL',
-            onUpdate: 'CASCADE'
-        }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('transactions')
-        await queryRunner.dropForeignKey('categories', 'TransactionsCategory')
     }
 
 }

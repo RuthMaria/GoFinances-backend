@@ -24,7 +24,7 @@ class CreateTransactionService {
       const deniedTransition = type === 'outcome' && value > total
 
       if(deniedTransition)
-            throw new AppError('You do not have enough balance!')
+            throw new AppError('You do not have enough balance!', 400)
     
       const transaction = transactionRepository.create({
         title,
@@ -35,7 +35,7 @@ class CreateTransactionService {
 
      await transactionRepository.save(transaction)
       
-      return transaction
+     return transaction
     }
 }
 

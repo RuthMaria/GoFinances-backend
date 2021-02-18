@@ -14,24 +14,24 @@ describe('Transaction', () => {
   beforeAll(async () => {
     connection = await createConnection('test-connection');
     
-    // await connection.query('DROP TABLE IF EXISTS transactions');
-    // await connection.query('DROP TABLE IF EXISTS categories');
-    // await connection.query('DROP TABLE IF EXISTS migrations');
+    await connection.query('DROP TABLE IF EXISTS transactions');
+    await connection.query('DROP TABLE IF EXISTS categories');
+    await connection.query('DROP TABLE IF EXISTS migrations');
     
     await connection.runMigrations();
   });
 
-  // beforeEach(async () => {
-  //   await connection.query('DELETE FROM transactions');
-  //   await connection.query('DELETE FROM categories');
-  // });
+  beforeEach(async () => {
+    await connection.query('DELETE FROM transactions');
+    await connection.query('DELETE FROM categories');
+  });
 
-  // afterAll(async () => {
-  //   const mainConnection = getConnection();
+  afterAll(async () => {
+    const mainConnection = getConnection();
 
-  //   await connection.close();
-  //   await mainConnection.close();
-  // });
+    await connection.close();
+    await mainConnection.close();
+  });
 
   it('should be able to list transactions', async () => {
     await request(app).post('/transactions').send({
