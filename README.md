@@ -32,7 +32,7 @@ Services:
 * Create transaction
 * Read transactions
 * Delete transaction
-* Upload file
+* Read file and create transaction
 
 
 <a id="technologies"></a><br>
@@ -44,6 +44,7 @@ Services:
   * Docker
   * Postgres
   * TypeORM
+  * Multer
 
 
 <a id="run"></a><br>
@@ -52,17 +53,18 @@ Services:
 
 <br>
 
-### :purple_circle: Requirements
+### :small_orange_diamond: Requirements
 
 * [NodeJS in its LTS version](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Dbeaver](https://dbeaver.io/download/)
 * [Docker](https://www.docker.com/get-started)
 * [Docker installation guide](https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2)
+* [yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 
 <br>
 
-### :purple_circle: Commands
+### :small_orange_diamond: Commands
 - Clone this repository
 
 ```
@@ -82,7 +84,7 @@ docker start gostack_postgres
 
 - Open the Dbeaver and create a new connection with Postgres. Change the port to 5432 and in the password, you type "docker", as you have defined above when create a postgres image on docker.
 
-- After that, create a new database in yout postgres connection inside Dbeaver. Write "gostack_desafio06_tests" in the database name
+- After that, create a new database in yout postgres connection inside Dbeaver. Write "gostack_desafio06" in the database name. For run the tests, create another database call "gostack_desafio06_test".
 
 - Install dependencies
 

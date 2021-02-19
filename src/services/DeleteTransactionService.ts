@@ -7,11 +7,12 @@ class DeleteTransactionService {
     
     const transactionRepository = getCustomRepository(TransactionRepository)
 
-    const deleteTransaction = await transactionRepository.delete(id)
-
-    if( !deleteTransaction )
-          throw new AppError('Transaction no exist.')
-
+    const checkTransactionExists = await transactionRepository.findOne(id)
+    
+    if( !checkTransactionExists )
+          throw new AppError('Transaction does not exist.')
+    
+    await transactionRepository.delete(id)
   }
 }
 

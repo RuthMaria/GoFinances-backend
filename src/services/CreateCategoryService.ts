@@ -5,29 +5,6 @@ import { getRepository } from 'typeorm'
 
 class CreateCategoryService {
 
-
-  public async searchCategory(id: string): Promise<Category | undefined>{
-
-    const categoryRepository = getRepository(Category)
-
-    const category =  await categoryRepository.findOne({
-      where: { id }
-     })
-
-     return category
-  }
-
-  // public transactionDTO(transactions: Transaction[]): Promise<Transaction[]>{
-
-  //   const newTransactions = transactions.map(transaction => {
-  //     return transaction.category
-  //           })
-  //   })
-
-  //  return newTransactions
-
-  // }
-
   public async execute(title: string): Promise<Category> {
     
     const categoryRepository = getRepository(Category)
@@ -39,11 +16,11 @@ class CreateCategoryService {
     if(checkCategoryExists)
          return checkCategoryExists
 
-    const category = categoryRepository.create({ title })
+    const newCategory = categoryRepository.create({ title })
 
-    await categoryRepository.save(category)
+    await categoryRepository.save(newCategory)
 
-    return category
+    return newCategory
   }
 }
 
