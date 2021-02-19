@@ -92,6 +92,11 @@ docker start gostack_postgres
 yarn 
 ```
 
+- Create the migrations
+```
+yarn typeorm migration:run
+```
+
 - Run the API
 
 ```
