@@ -1,10 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+} from 'typeorm';
 
-import Category from './Category'
+import Category from './Category';
 
 @Entity('transactions')
 class Transaction {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -20,9 +27,9 @@ class Transaction {
   @Column()
   category_id: string;
 
-  @ManyToOne( () => Category )
-  @JoinColumn( { name: 'category_id' })
-  category: Category
+  @ManyToOne(() => Category, category => category.transaction, { eager: true })
+  @JoinColumn({ name: 'category_id' })
+  category: Category;
 
   @CreateDateColumn()
   created_at: Date;

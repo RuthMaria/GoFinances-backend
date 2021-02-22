@@ -13,7 +13,7 @@
 
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=FF9000&labelColor=000000" alt="PRs welcome!" /> 
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=FF9000&labelColor=000000" alt="PRs welcome!" />
 
   <img alt="License" src="https://img.shields.io/badge/Made%20by-Ruth%20Maria-FF9000">
 
@@ -68,13 +68,13 @@ Services:
 - Clone this repository
 
 ```
-git clone https://github.com/RuthMaria/GoRestaurant-backend.git
+git clone https://github.com/RuthMaria/GoFinances-backend.git
 ```
 
 - Install the postgres image on your docker container using port 5432 or another port
 
 ```
-docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres 
+docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 - Start postgres image
@@ -89,7 +89,7 @@ docker start gostack_postgres
 - Install dependencies
 
 ```
-yarn 
+yarn
 ```
 
 - Create the migrations
